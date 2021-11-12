@@ -1,0 +1,12 @@
+{
+    "ID": "747F1A93B6D24CCFBC433BA2455B3BEA",
+    "ActionKeyword": "wst",
+    "Name": "Windows Startup",
+    "Description": "Control Windows start-up programs.",
+    "Author": "Garulf",
+    "Version": "0.0.1",
+    "Language": "python",
+    "Website": "https://github.com/garulf/windows_startup",
+    "IcoPath": "./icon.png",
+    "ExecuteFileName": "run.py"
+}
