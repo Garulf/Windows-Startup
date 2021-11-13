@@ -37,7 +37,7 @@ class WindowsStartup(Flox):
         )
         self.add_item(
                 title="Enable Program",
-                subtitle="Allow program from starting with Windows.",
+                subtitle="Allow program to start with Windows.",
                 icon=ENABLED_ICON,
                 method='enable',
                 parameters=[str(prog._base_key), str(prog._reg_path), str(prog._key_index)]
