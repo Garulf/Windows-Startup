@@ -17,14 +17,14 @@ class WindowsStartup(Flox):
                 subtitle = f"❌{program.status}"
                 if program.value():
                     subtitle = f"✔️{program.status}"
-                    self.add_item(
-                        title=program.name.replace(".lnk", ""),
-                        subtitle=subtitle,
-                        icon=program.path,
-                        method='toggle',
-                        parameters=[str(program._base_key), str(program._reg_path), str(program._key_index)],
-                        context=[str(program._base_key), str(program._reg_path), str(program._key_index)]
-                    )
+                self.add_item(
+                    title=program.name.replace(".lnk", ""),
+                    subtitle=subtitle,
+                    icon=program.path,
+                    method='toggle',
+                    parameters=[str(program._base_key), str(program._reg_path), str(program._key_index)],
+                    context=[str(program._base_key), str(program._reg_path), str(program._key_index)]
+                )
 
     def context_menu(self, data):
         prog = startup.StartupProgram(int(data[0]), data[1], int(data[2]))
