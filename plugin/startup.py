@@ -1,7 +1,7 @@
 import subprocess as sp
 import winreg as reg
 import os
-from pathlib import Path
+from pathlib import Path, PurePath
 import logging
 import logging.handlers
 
@@ -134,9 +134,10 @@ def get_startup_programs():
 if __name__ == "__main__":
     programs = get_startup_programs()
     for prog in programs:
-        if prog.name == "Steam":
-            print(prog)
-            print(prog.status)
-            # prog.toggle()
-            print(prog.status)
-            print(type(prog._base_key))
+        print(prog)
+    print(Path(__file__).absolute().parent.parent)
+    ICONS_DIR = Path.joinpath(Path(__file__).absolute().parent.parent, "icons")
+    ENABLED_ICON = Path(ICONS_DIR).joinpath("check-circle.png")
+    DISABLED_ICON = Path(ICONS_DIR).joinpath("checkbox-blank-circle.png")
+    print(DISABLED_ICON.path)
+

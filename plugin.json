@@ -7,6 +7,6 @@
     "Version": "0.0.1",
     "Language": "python",
     "Website": "https://github.com/garulf/windows_startup",
-    "IcoPath": "./icons/application-cog.png",
+    "IcoPath": "./icons/application.png",
     "ExecuteFileName": "run.py"
 }
