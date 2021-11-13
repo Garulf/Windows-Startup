@@ -132,12 +132,5 @@ def get_startup_programs():
 
 
 if __name__ == "__main__":
-    programs = get_startup_programs()
-    for prog in programs:
-        print(prog)
-    print(Path(__file__).absolute().parent.parent)
-    ICONS_DIR = Path.joinpath(Path(__file__).absolute().parent.parent, "icons")
-    ENABLED_ICON = Path(ICONS_DIR).joinpath("check-circle.png")
-    DISABLED_ICON = Path(ICONS_DIR).joinpath("checkbox-blank-circle.png")
-    print(DISABLED_ICON.path)
+    pass
 
