@@ -27,11 +27,15 @@ class StartupProgram():
         self._command = None
         self._path = None
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.name} ({self.path})"
 
+    def __repr__(self):
+        return self._base_key, self._reg_path, self._key_index
+
     @property
-    def name(self):
+    def name(self) -> str:
+        """Return name of startup program."""
         if self._name is None:
             self._name = self._get_registry_value(self._base_key, self._reg_path, self._key_index)[0]
         return self._name
@@ -40,7 +44,7 @@ class StartupProgram():
     def _value(self):
         return self._get_registry_value(self._base_key, self._reg_path, self._key_index)[1]
 
-    def value(self):
+    def value(self) -> bool:
         if self._value == ENABLED:
             return True
         elif self._value == DISABLED:
@@ -65,7 +69,8 @@ class StartupProgram():
                     return _[1]
 
     @property
-    def command(self):
+    def command(self) -> str:
+        """Program command line args"""
         if self._command is None:
             self._command = self._find_command(self.name, self._base_key)
             if self._command:
@@ -73,7 +78,8 @@ class StartupProgram():
         return self._command
 
     @property
-    def path(self):
+    def path(self) -> str:
+        """Return path of program."""
         if self._path is None:
             if self.name.endswith(".lnk"):
                 for path in [USER_STARTUP, SYSTEM_STARTUP]:
@@ -92,12 +98,15 @@ class StartupProgram():
             return "Disabled"
 
     def enable(self):
+        """Enables program startup with system"""
         self._set_registry_value(self._base_key, self._reg_path, self.name, ENABLED)
 
     def disable(self):
+        """Disables program startup with system"""
         self._set_registry_value(self._base_key, self._reg_path, self.name, DISABLED)
 
     def toggle(self):
+        """Toggle programs startup ability."""
         if self.value():
             self.disable()
         else:
