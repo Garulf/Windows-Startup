@@ -22,7 +22,7 @@ class WindowsStartup(Flox):
                     title=program.name.replace(".lnk", ""),
                     subtitle=subtitle,
                     icon=program.path,
-                    method='toggle',
+                    method=self.toggle,
                     parameters=[str(program._base_key), str(program._reg_path), str(program._key_index)],
                     context=[str(program._base_key), str(program._reg_path), str(program._key_index)]
                 )
@@ -33,21 +33,21 @@ class WindowsStartup(Flox):
             title="Open Program",
             subtitle=prog.path,
             icon=prog.path,
-            method='open_program',
+            method=self.open_program,
             parameters=[prog.path]
         )
         self.add_item(
                 title="Enable Program",
                 subtitle="Allow program to start with Windows.",
                 icon=ENABLED_ICON,
-                method='enable',
+                method=self.enable,
                 parameters=[str(prog._base_key), str(prog._reg_path), str(prog._key_index)]
         )
         self.add_item(
             title="Disable Program",
             subtitle="Prevent program from starting with Windows.",
             icon=DISABLED_ICON,
-            method='disable',
+            method=self.disable,
             parameters=[str(prog._base_key), str(prog._reg_path), str(prog._key_index)]
         )
 
