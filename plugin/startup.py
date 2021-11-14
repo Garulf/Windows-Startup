@@ -23,6 +23,7 @@ class StartupProgram():
         self._base_key = base_key
         self._reg_path = reg_path
         self._key_index = key_index
+        self._reg_path_stem = Path(self._reg_path).stem
         self._name = None
         self._command = None
         self._path = None
@@ -81,11 +82,11 @@ class StartupProgram():
     def path(self) -> str:
         """Return path of program."""
         if self._path is None:
-            if self.name.endswith(".lnk"):
-                for path in [USER_STARTUP, SYSTEM_STARTUP]:
-                    if Path(path, self.name).exists():
-                        self._path = Path(path, self.name)
-                        break
+            if self._reg_path_stem == "StartupFolder":
+                if self._base_key == reg.HKEY_CURRENT_USER:
+                    self._path = Path(USER_STARTUP, self.name)
+                else:
+                    self._path = Path(SYSTEM_STARTUP, self.name)
             elif self.command:
                 self._path = self.command.split(" -")[0].split(" /")[0].replace("\"", "").replace("%windir%", os.getenv("WINDIR"))
         return str(self._path)
