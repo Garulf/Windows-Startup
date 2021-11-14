@@ -1,7 +1,8 @@
+import os
 from subprocess import Popen
 from pathlib import Path
 
-from flox import Flox
+from flox import Flox, ICON_APP_ERROR
 
 import startup
 
@@ -64,7 +65,7 @@ class WindowsStartup(Flox):
         prog.disable()
 
     def open_program(self, path):
-        proc = Popen(path)
+        proc = os.startfile(path)
 
 
 if __name__ == "__main__":
