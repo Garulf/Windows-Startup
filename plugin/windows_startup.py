@@ -3,7 +3,7 @@ from subprocess import Popen
 from pathlib import Path
 from typing import Callable
 
-from flox import Flox, ICON_APP_ERROR
+from flox import Flox
 
 import startup
 
