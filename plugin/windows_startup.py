@@ -18,7 +18,7 @@ class WindowsStartup(Flox):
             if query.lower() in program.name.lower():
                 subtitle = f"❌{program.status}"
                 if program.value():
-                    subtitle = f"✔️{program.status} - Toggle program startup behavior"
+                    subtitle = f"✔️{program.status} - Press ENTER to toggle program startup behavior"
                 self.add_item(
                     title=program.name.replace(".lnk", ""),
                     subtitle=subtitle,
