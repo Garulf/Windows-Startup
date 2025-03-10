@@ -6,7 +6,7 @@
   "Author": "Garulf",
   "Version": "1.0.2",
   "Language": "python",
-  "Website": "https://github.com/garulf/windows_startup",
+  "Website": "https://github.com/Garulf/Windows-Startup",
   "IcoPath": "./icons/application.png",
   "ExecuteFileName": "run.py"
 }
