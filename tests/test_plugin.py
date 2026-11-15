@@ -94,3 +94,8 @@ def test_manifest_keeps_id_keyword_and_runtime():
     assert manifest["Name"] == windows_startup.PLUGIN_NAME
     assert manifest["Language"] == "python_v2"
     assert (ROOT / "data" / manifest["IcoPath"]).is_file()
+
+
+def test_manifest_links_to_this_repo():
+    manifest = json.loads((ROOT / "data" / "plugin.json").read_text(encoding="utf-8"))
+    assert manifest["Website"] == "https://github.com/Garulf/Windows-Startup"
