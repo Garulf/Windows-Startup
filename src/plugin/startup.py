@@ -26,7 +26,8 @@ def user_startup_folder() -> PureWindowsPath:
 
 
 def system_startup_folder() -> PureWindowsPath:
-    return PureWindowsPath(windir(), "Microsoft", "Windows", "Start Menu", "StartUp")
+    program_data = os.environ.get("PROGRAMDATA", r"C:\ProgramData")
+    return PureWindowsPath(program_data, "Microsoft", "Windows", "Start Menu", "Programs", "StartUp")
 
 
 class StartupProgram:

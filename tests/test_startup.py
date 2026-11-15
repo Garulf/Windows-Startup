@@ -84,3 +84,8 @@ def test_registry_locations_and_bytes_are_unchanged():
     )
     assert startup.ENABLED.hex() == "020000000000000000000000"
     assert startup.DISABLED.hex() == "0300000011d0b649c3aad701"
+
+
+def test_all_users_startup_folder_path(fake_registry):
+    backup = startup.StartupProgram(HKEY_LOCAL_MACHINE, APPROVED_FOLDER, 0)
+    assert backup.path == r"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\Backup.lnk"
