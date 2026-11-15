@@ -67,7 +67,11 @@ def context_menu(data: List[str]):
 
 def change_program(program: startup.StartupProgram, change: Callable[[], None]):
     before = program.value()
-    change()
+    try:
+        change()
+    except PermissionError:
+        message = f"Unable to change {program.name}. Run Flow Launcher as administrator to change it."
+        return plugin.launcher.api.show_msg(f"{PLUGIN_NAME}: ERROR!", message, ICON)
     if program.value() != before:
         title = f"{PLUGIN_NAME}: {program.status}!"
         message = f"{program.name.title()} start-up is {program.status}"

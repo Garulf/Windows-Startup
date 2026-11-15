@@ -99,3 +99,15 @@ def test_manifest_keeps_id_keyword_and_runtime():
 def test_manifest_links_to_this_repo():
     manifest = json.loads((ROOT / "data" / "plugin.json").read_text(encoding="utf-8"))
     assert manifest["Website"] == "https://github.com/Garulf/Windows-Startup"
+
+
+def test_change_without_rights_reports_error(fake_registry, monkeypatch):
+    def denied(*args):
+        raise PermissionError(5, "Access is denied")
+
+    monkeypatch.setattr(fake_registry, "set_binary", denied)
+    command = call("toggle", str(HKEY_CURRENT_USER), APPROVED_RUN, "0")
+    assert command["Parameters"][:2] == [
+        "Windows Startup: ERROR!",
+        "Unable to change Discord. Run Flow Launcher as administrator to change it.",
+    ]
