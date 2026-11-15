@@ -1,0 +1,31 @@
+{
+  "keyword": "wst",
+  "query": "spotify",
+  "icon": "../../data/icon.png",
+  "max_results": 4,
+  "selection": 2,
+  "results": [
+    {
+      "title": "Open Program",
+      "subtitle": "C:\\Users\\alex\\AppData\\Roaming\\Spotify\\Spotify.exe",
+      "image": "application"
+    },
+    {
+      "title": "Reveal in Explorer",
+      "subtitle": "Reveals and selects program in file explorer.",
+      "image": "application"
+    },
+    {
+      "title": "Enable Program",
+      "subtitle": "Allow program to start with Windows.",
+      "image": "check-circle"
+    },
+    {
+      "title": "Disable Program",
+      "subtitle": "Prevent program from starting with Windows.",
+      "image": "checkbox-blank-circle"
+    }
+  ],
+  "query_suggestion": "",
+  "show_caret": false
+}

@@ -1,0 +1,31 @@
+{
+  "keyword": "wst",
+  "query": "",
+  "icon": "../../data/icon.png",
+  "max_results": 4,
+  "selection": 0,
+  "results": [
+    {
+      "title": "Discord",
+      "subtitle": "✔️Enabled - Press ENTER to toggle program startup behavior",
+      "image": "application"
+    },
+    {
+      "title": "Spotify",
+      "subtitle": "❌Disabled",
+      "image": "application"
+    },
+    {
+      "title": "OneDrive",
+      "subtitle": "✔️Enabled - Press ENTER to toggle program startup behavior",
+      "image": "application"
+    },
+    {
+      "title": "Steam",
+      "subtitle": "❌Disabled",
+      "image": "application"
+    }
+  ],
+  "query_suggestion": "",
+  "show_caret": true
+}
