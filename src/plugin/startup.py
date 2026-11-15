@@ -66,7 +66,11 @@ class StartupProgram:
     @property
     def command(self) -> Optional[str]:
         name = self.name.lower()
-        for value_name, data in registry.values(self.base_key, RUN_PATH):
+        try:
+            run_values = registry.values(self.base_key, RUN_PATH)
+        except FileNotFoundError:
+            return None
+        for value_name, data in run_values:
             if value_name.lower() == name:
                 return data
         return None

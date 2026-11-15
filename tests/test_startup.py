@@ -89,3 +89,10 @@ def test_registry_locations_and_bytes_are_unchanged():
 def test_all_users_startup_folder_path(fake_registry):
     backup = startup.StartupProgram(HKEY_LOCAL_MACHINE, APPROVED_FOLDER, 0)
     assert backup.path == r"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\Backup.lnk"
+
+
+def test_missing_run_key_leaves_command_unknown(fake_registry):
+    del fake_registry.keys[(HKEY_CURRENT_USER, startup.RUN_PATH)]
+    discord = startup.StartupProgram(HKEY_CURRENT_USER, APPROVED_RUN, 0)
+    assert discord.command is None
+    assert discord.path == "None"
