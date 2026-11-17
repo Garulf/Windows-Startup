@@ -4,7 +4,7 @@
   "Name": "Windows Startup",
   "Description": "Control Windows start-up programs.",
   "Author": "Garulf",
-  "Version": "1.0.2",
+  "Version": "2.0.0",
   "Language": "python_v2",
   "Website": "https://github.com/Garulf/Windows-Startup",
   "IcoPath": "icon.png",
