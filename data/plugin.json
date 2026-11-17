@@ -5,8 +5,8 @@
   "Description": "Control Windows start-up programs.",
   "Author": "Garulf",
   "Version": "1.0.2",
-  "Language": "python",
-  "Website": "https://github.com/garulf/windows_startup",
-  "IcoPath": "./icons/application.png",
+  "Language": "python_v2",
+  "Website": "https://github.com/Garulf/Windows-Startup",
+  "IcoPath": "icon.png",
   "ExecuteFileName": "run.py"
 }
